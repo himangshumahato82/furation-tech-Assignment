@@ -8,7 +8,7 @@ import {
  
 } from "@chakra-ui/react";
 import ProductOffer from "./ProductOffer";
-// import { FaRegHeart } from "react-icons/fa";
+
 
 import { Link, useParams } from "react-router-dom";
 import "./ProductDetails.css";
@@ -19,8 +19,8 @@ import { LoginContext } from "./Context/Context";
 
 const ProductDetail = () => {
  
-  const { loginInfo, setloginInfo } = useContext(LoginContext);
-  let [data1, setdata1] = useState([]);
+  const { loginInfo } = useContext(LoginContext);
+ 
   const toast = useToast();
   let [productdata, setproductdata] = useState([]);
   let { id } = useParams();
@@ -28,9 +28,33 @@ const ProductDetail = () => {
   let [disabled, setDisable] = useState(false);
   let cartdatalocal = JSON.parse(localStorage.getItem("cartdata")) || [];
   // const { loginInfo, setloginInfo } = useContext(LoginContext);
-  let user = true;
+  
 
-  const buyNow = async () => {};
+  const buyNow = async (value) => {
+
+    if (loginInfo !== "{}") {
+      let temp = [...cartdatalocal, value];
+      setcartdata(temp);
+      localStorage.setItem("cartdata", JSON.stringify(temp));
+      toast({
+        title: "Added to Buy",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Login first",
+        status: "error",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+    // console.log("addto bag")
+  };
+  
 
   const addNow = async (value) => {
     if (loginInfo !== "{}") {
@@ -62,11 +86,11 @@ const ProductDetail = () => {
   useEffect(() => {
     fetchproduct();
     let temp = cartdatalocal.filter((el) => {
-      if (el.id == id) {
+      if (el.id ===id) {
         return el;
       }
     });
-    if (temp.length != 0) {
+    if (temp.length !== 0) {
       setDisable(true);
     }
   }, [id, cartdata]);
@@ -78,17 +102,7 @@ const ProductDetail = () => {
     setproductdata(data);
   };
   let obj = productdata;
-  // let obj={
-  //     id: "1",
-  //     department: "footwear",
-  //     category: "men",
-  //     img: "https://img.tatacliq.com/images/i7/437Wx649H/MP000000010368972_437Wx649H_202108211730241.jpeg",
-  //     brand: "Woodland",
-  //     name: "Woodland Men's Rust Derby Shoes",
-  //     strikedprice: "1647",
-  //     price: "1497",
-  //     product_type: "casual"
-  //     }
+ 
   let offer1 = {
     img: "https://www.tatacliq.com/src/pdp/components/img/bank_offers.svg",
     detail: "15% off on AU Small Finance Bank Limited Debit & Credit Cards.",

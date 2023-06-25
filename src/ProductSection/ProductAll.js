@@ -1,9 +1,9 @@
-import { Accordion, Box, Image } from "@chakra-ui/react";
+import {  Box, Image } from "@chakra-ui/react";
 import lodergif from "./loder.gif";
 import React, { useEffect, useState } from "react";
 import ProdtctFilter from "./ProdtctFilter";
 import ProductCard from "./ProductCard";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { myContext } from "./Context/Context";
 import { LoginContext } from "./Context/Context";
 import { useContext } from "react";
@@ -15,12 +15,12 @@ const ProductAll = () => {
   let [state, setState] = React.useState("");
   let [loder, setloader] = useState(false);
   let [val, setVal] = React.useState([]);
-  let { valu, fn } = useContext(LoginContext);
+  let { valu} = useContext(LoginContext);
   useEffect(() => {
     fetchdata();
   }, [valu]);
 
-  // https://raghvendra-tatacilq-data.onrender.com/data
+  
   const fetchdata = async () => {
     let res = await fetch(
       `http://localhost:3004/data/?department=${category}`
@@ -31,7 +31,7 @@ const ProductAll = () => {
     setVal(data);
   };
 
-  // let data=React.useContext(myContext).stat
+  
   useEffect(() => {
     setloader(true);
     setState(val);

@@ -15,7 +15,7 @@ function NavBar() {
   const [current, setcurrent] = useState(false);
   const [text, setText] = useState("");
 
-  let { fn, valu } = useContext(LoginContext);
+  let { fn } = useContext(LoginContext);
 
   let navigate = useNavigate();
  
@@ -32,11 +32,11 @@ function NavBar() {
       setcurrent(true);
     }
 
-    if (text.length == 1) {
+    if (text.length === 1) {
       setcurrent(false);
     }
 
-    if (text == "") {
+    if (text === "") {
       setcurrent(false);
     }
   }

@@ -14,8 +14,8 @@ import {
   FormLabel,
   Switch,
 } from "@chakra-ui/react";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import {  WarningIcon } from "@chakra-ui/icons";
+
 import { useNavigate } from "react-router-dom";
 
 const CartPay = () => {

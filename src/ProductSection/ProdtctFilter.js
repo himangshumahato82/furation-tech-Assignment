@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -7,17 +7,16 @@ import {
   AccordionIcon,
   Box,
 } from "@chakra-ui/react";
-import { Checkbox, CheckboxGroup, Stack } from "@chakra-ui/react";
+import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { myContext } from "./Context/Context";
 import "./ProductFilter.css";
 
 const Sort = () => {
   let [state, setState] = React.useState([]);
-  let [state1, setState1] = React.useState([]);
+  
   let [toggle, setToggle] = React.useState(null);
   let [load, setLoad] = React.useState(false);
-  let reference = useRef("");
-
+ 
   let setfunc = useContext(myContext).fn;
   let paramName = useContext(myContext).name;
   useEffect(() => {
@@ -28,12 +27,12 @@ const Sort = () => {
     } else if (toggle === 2) {
       data();
     }
-    console.log(state1);
+    
 
     if (state.length === 0) {
       fetchData();
     }
-  }, [state1, state, load]);
+  }, [state, load]);
 
   const fetchData = async () => {
     let res = await fetch(
@@ -84,22 +83,10 @@ const Sort = () => {
 
   // handling brand sort Start---------------------------------->
 
-  const handleChange1 = (e) => {
-    let { value, checked } = e.target;
-    if (checked === false) {
-      let newArr = state1.filter((el) => {
-        return el !== value;
-      });
-      setState1(newArr);
-      return;
-    }
-    setState1([...state1, value]);
-    setToggle(1);
-    setLoad((prev) => !prev);
-  };
+  
 
   const data1 = async () => {
-    if (state1.length > 0) {
+    if (state.length > 0) {
       let res = await fetch(
         "http://localhost:3004/data"
       );
@@ -109,7 +96,7 @@ const Sort = () => {
       var arr4 = [];
       for (let i = 0; i < state.length; i++) {
         arr = data.filter((el) => {
-          return el.brand === state1[i];
+          return el.brand === state[i];
         });
         console.log(arr);
         arr4 = [].concat(arr4, arr);

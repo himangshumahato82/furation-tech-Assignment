@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import "./Payment.css";
 import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
 const Payment = (props) => {
   let [state, setState] = React.useState([]);
-  let { val, fn } = props;
+  let {  fn } = props;
 
   useEffect(() => {
     let arr = JSON.parse(localStorage.getItem("cartdata")) || [];
     setState(arr);
-    console.log(state);
+    
   }, []);
 
   return (
