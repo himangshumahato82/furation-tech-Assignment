@@ -23,7 +23,7 @@ const ProductAll = () => {
   // https://raghvendra-tatacilq-data.onrender.com/data
   const fetchdata = async () => {
     let res = await fetch(
-      `https://himangshumahato82.github.io/furation-backend/db.json/?department=${category}`
+      `http://localhost:3004/data/?department=${category}`
     );
     //
     let data = await res.json();

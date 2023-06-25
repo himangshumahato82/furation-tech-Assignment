@@ -37,7 +37,7 @@ const Sort = () => {
 
   const fetchData = async () => {
     let res = await fetch(
-      `https://himangshumahato82.github.io/furation-backend/db.json/?department=${paramName}`
+      `http://localhost:3004/data/?department=${paramName}`
     );
     let data = await res.json();
     setfunc(data);

@@ -72,7 +72,7 @@ const ProductDetail = () => {
   }, [id, cartdata]);
   const fetchproduct = async () => {
     let res = await fetch(
-      `https://himangshumahato82.github.io/furation-backend/db.json/${id}`
+      `http://localhost:3004/data/${id}`
     );
     let data = await res.json();
     setproductdata(data);
