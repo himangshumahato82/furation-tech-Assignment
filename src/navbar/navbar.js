@@ -115,6 +115,7 @@ function NavBar() {
               <div>
                 <div>
                   <h1 className="icon_heart">
+                   
                     <FontAwesomeIcon icon={faHeart} />
                   </h1>
                 </div>
@@ -124,6 +125,7 @@ function NavBar() {
                 <Link to="/cart">
                   <div>
                     <h1 className="icon_heart">
+                    <p>VIEW CART</p>
                       <FontAwesomeIcon icon={faFolder} />
                     </h1>
                   </div>

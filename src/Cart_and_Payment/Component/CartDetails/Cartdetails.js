@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import "../Allcss.css/all.css";
 import { Select } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button,  } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
-import { json } from "react-router-dom";
+
 import myCartContext from "../../CartContext/Cartcontext";
 
 const Cartdetails = (props) => {
-  // let[state,setState]=React.useState([])
-  let { totval, totalfn, coupon, setcop, load2 } = useContext(myCartContext);
+  
+  let { totval, totalfn, load2 } = useContext(myCartContext);
 
   let {
     brand,
@@ -46,8 +46,7 @@ const Cartdetails = (props) => {
     let newArr = arr.filter((el) => {
       return el.id !== a;
     });
-    // console.log(newArr)
-    // arr.splice(a,1)
+    
     load2((prev)=>!prev)
     props.fn(newArr);
     localStorage.setItem("cartdata", JSON.stringify(newArr));
