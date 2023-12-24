@@ -137,11 +137,9 @@ const CartPay = () => {
                   style={{ display: "flex", alignItems: "center" }}
                   textAlign="left"
                 >
-                  <img
-                    style={{ width: "30px" }}
-                    src="https://www.tatacliq.com/src/cart/components/img/debit-card.svg"
-                    alt="card"
-                  />
+                  
+                  
+                  
                   &nbsp; Debit Card
                 </Box>
                 <AccordionIcon />

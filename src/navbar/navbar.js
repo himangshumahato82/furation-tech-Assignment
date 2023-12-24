@@ -7,24 +7,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faFolder } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
-import { LoginContext } from "../ProductSection/Context/Context";
-import { useContext } from "react";
 
+
+import React, {useEffect } from "react";
 function NavBar() {
  
   const [current, setcurrent] = useState(false);
   const [text, setText] = useState("");
 
-  let { fn } = useContext(LoginContext);
+  
+
+  const [cartData, setCartData] = React.useState(0);
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("cartdata")) || [];
+    setCartData(storedData.length);
+  }, [cartData]);
 
   let navigate = useNavigate();
  
   console.log(text);
 
   const products = [
-    "Brain Tracy",
-    "JK Rowling",
-    "Paulo Coelho"
+    "Samsung",
+    "OPPO",
+    "Apple"
   ];
 
   function handinginputbox() {
@@ -40,7 +46,7 @@ function NavBar() {
       setcurrent(false);
     }
   }
-
+  const isLoggedIn = localStorage.getItem('token');
   function clickoninputdrop(targ) {
     console.log(targ);
     document.getElementById("right_lower_box_third_input_box_id").value = targ;
@@ -50,7 +56,8 @@ function NavBar() {
     <div>
       <div id="main_navbar">
         <div id="navbar_left_box">
-          
+        <Link to="/"><h1 style={{color:"red"}}>LogIn</h1></Link>
+               
         </div>
         <div id="navbar_right_box">
         
@@ -80,11 +87,10 @@ function NavBar() {
                     document.getElementById(
                       "right_lower_box_third_input_box_id"
                     ).value = "";
-                    fn((prev) => !prev);
-                    setcurrent(false);
+                    
                   }
                 }}
-                placeholder="Search By Author's Name"
+                placeholder="Search By brand's Name"
               ></input>
 
               <div
@@ -122,14 +128,15 @@ function NavBar() {
                
               </div>
               <div>
-                <Link to="/cart">
+              {isLoggedIn?<Link to="/cart">
                   <div>
                     <h1 className="icon_heart">
+                    <h1 style={{color:"red"}}>{cartData}</h1>
                     <p>VIEW CART</p>
                       <FontAwesomeIcon icon={faFolder} />
                     </h1>
                   </div>
-                </Link>
+                </Link>:"You went Wrong"}
                
               </div>
             </div>

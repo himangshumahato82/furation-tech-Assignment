@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import "./Checkout.css";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button,  } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
+import { Checkbox, } from "@chakra-ui/react";
 import myCartContext from "../../CartContext/Cartcontext";
 
 const Checkout = (props) => {
   let total = useContext(myCartContext).totval;
-  let { coupon, setcop } = useContext(myCartContext);
+  let { coupon } = useContext(myCartContext);
   console.log(total);
   let { val, fn } = props;
   // console.log(fn);
@@ -67,11 +67,8 @@ const Checkout = (props) => {
                 <h1 style={{ fontSize: "25px" }}>
                   ₹{Math.round(total - total * (10 / 100))}
                 </h1>
-                <img
-                  style={{ marginTop: "8px", width: "60px" }}
-                  src="https://thumbs.gfycat.com/CompleteShallowFlyingsquirrel-size_restricted.gif"
-                  alt="cartmove"
-                />
+                
+              
               </div>
             </div>
           ) : val === 1 ? (
@@ -93,11 +90,7 @@ const Checkout = (props) => {
                     colorScheme="red"
                   >
                     Checkout
-                    <img
-                      style={{ marginRight: "-10px", width: "60px" }}
-                      src="https://thumbs.gfycat.com/CompleteShallowFlyingsquirrel-size_restricted.gif"
-                      alt="cartmove"
-                    />
+                    
                   </Button>
                 </Link>
               </div>

@@ -15,6 +15,8 @@ function App() {
   useEffect(() => {
     console.log(inputLoad);
   }, );
+
+  
   return (
     <div className="App">
       <LoginContext.Provider value={{ loginInfo, setloginInfo, fn: setinputLoad, valu:inputLoad }}>

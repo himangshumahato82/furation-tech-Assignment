@@ -1,16 +1,13 @@
 import React from "react";
 import "../Allcss.css/all.css";
-import { background, Input } from "@chakra-ui/react";
+import {  Input } from "@chakra-ui/react";
 const MyBag = () => {
   return (
     <>
       <div id="mybag">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div>
-            <img
-              src="https://thumbs.gfycat.com/AstonishingWhisperedInchworm-size_restricted.gif"
-              alt="bag_gif"
-            />
+           
           </div>
           <div>
             <h2>My Bag</h2>
@@ -18,7 +15,7 @@ const MyBag = () => {
         </div>
 
         <div id="bagin">
-          <p>Asansol, 713305</p>
+          <p>Bengaluru</p>
           <Input
             variant="flushed"
             type="text"

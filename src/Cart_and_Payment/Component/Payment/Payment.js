@@ -72,7 +72,7 @@ const Payment = (props) => {
                 <p style={{ fontSize: "18px", textAlign: "left" }}>
                   {el.name}
                   <span style={{ fontWeight: "400", color: "red" }}>
-                    &nbsp; Delivery by 6th Dec
+                    &nbsp; Delivery by 26 Dec
                   </span>
                 </p>
               );

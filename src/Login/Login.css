@@ -1,0 +1,42 @@
+/* Style for Login Page */
+.container {
+
+    width: 500px;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 10 10px rgba(179, 144, 144, 0.1);
+    text-align: center;
+  
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .container>input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    
+  }
+  
+  .container>button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #00ff15;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

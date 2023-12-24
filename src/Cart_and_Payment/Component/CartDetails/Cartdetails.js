@@ -15,7 +15,7 @@ const Cartdetails = (props) => {
     category,
     department,
     id,
-    img,
+    thumbnail,
     name,
     price,
     product_type,
@@ -28,7 +28,7 @@ const Cartdetails = (props) => {
     category,
     department,
     id,
-    img,
+    thumbnail,
     name,
     price,
     product_type,
@@ -76,7 +76,7 @@ const Cartdetails = (props) => {
   return (
     <div className="Cartbox" style={{height:"auto"}}>
       <div className="cart_image">
-        <img src={img} alt="shoe" />
+        <img src={thumbnail} alt="mobile" />
       </div>
       <div className="cart_data">
         <div>
@@ -94,7 +94,7 @@ const Cartdetails = (props) => {
               }}
             >
               {" "}
-              ₹{strikedprice}
+             
             </p>
             <br />
             <p style={{ float: "left", fontFamily: "light" }}>Color:</p>
@@ -102,7 +102,7 @@ const Cartdetails = (props) => {
               &nbsp;Pink | Blue
             </p>
             <p style={{ fontFamily: "light", display: "block" }}>
-              Size: UK/IND-8
+              
             </p>
             <br />
             <hr />
@@ -114,7 +114,7 @@ const Cartdetails = (props) => {
               alt="ship"
             />
             <p style={{ fontFamily: "regular" }}>
-              Delivery by 7th Dec | <span style={{ color: "green" }}>FREE</span>
+              Delivery by 23th Dec | <span style={{ color: "green" }}>FREE</span>
             </p>
           </div>
         </div>

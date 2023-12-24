@@ -25,8 +25,8 @@ const ProductCard = ({ data }) => {
             <Image
               style={{ borderRadius: "10px" }}
               width="100%"
-              src={data.img}
-              alt={data.img}
+              src={data.thumbnail}
+              alt={data.thumbnail}
             />
             <Image
               position={"absolute"}
@@ -61,7 +61,7 @@ const ProductCard = ({ data }) => {
           marginBottom={"8px"}
           fontSize="14px"
         >
-          {data.name}
+          {data.title}
         </Box>
         {/* PRODUCT NAME END */}
 
@@ -77,7 +77,7 @@ const ProductCard = ({ data }) => {
             ₹{data.price}
           </Text>
           <Text textDecoration="line-through" color="#979797" fontSize="12px">
-            ₹{data.strikedprice}
+            ₹{data.category}
           </Text>
         </Box>
         {/* PRICE AND DISCOUNT END */}

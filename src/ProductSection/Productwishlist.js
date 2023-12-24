@@ -8,10 +8,9 @@ import { useToast } from '@chakra-ui/react'
 
 
 const Productwishlist = ({data}) => {
-  const { loginInfo, setloginInfo } = useContext(LoginContext);
+  const { loginInfo } = useContext(LoginContext);
 
   const toast = useToast()
-  let user=true;
   
     console.log(data)
       let [show,setshow]=useState(false)

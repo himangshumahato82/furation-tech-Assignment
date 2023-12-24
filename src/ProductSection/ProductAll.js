@@ -18,17 +18,18 @@ const ProductAll = () => {
   let { valu} = useContext(LoginContext);
   useEffect(() => {
     fetchdata();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valu]);
 
   
   const fetchdata = async () => {
     let res = await fetch(
-      `http://localhost:3004/data/?department=${category}`
+      `https://dummyjson.com/products/category/smartphones/products/?brand=${category}`
     );
     //
     let data = await res.json();
     console.log(data);
-    setVal(data);
+    setVal(data.products);
   };
 
   
@@ -38,6 +39,7 @@ const ProductAll = () => {
     setTimeout(() => {
       setloader(false);
     }, 200);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   return (

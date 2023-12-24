@@ -85,6 +85,7 @@ const ProductDetail = () => {
   // };
   useEffect(() => {
     fetchproduct();
+    // eslint-disable-next-line array-callback-return
     let temp = cartdatalocal.filter((el) => {
       if (el.id ===id) {
         return el;
@@ -93,13 +94,15 @@ const ProductDetail = () => {
     if (temp.length !== 0) {
       setDisable(true);
     }
-  }, [id, cartdata]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id,cartdata]);
   const fetchproduct = async () => {
     let res = await fetch(
-      `http://localhost:3004/data/${id}`
+      `https://dummyjson.com/products/${id}`
     );
     let data = await res.json();
     setproductdata(data);
+    console.log(data)
   };
   let obj = productdata;
  
@@ -134,15 +137,9 @@ const ProductDetail = () => {
                   borderRadius={"5px"}
                   display="block"
                   margin="auto"
-                  src={obj.img}
+                  src={obj.thumbnail}
                 />
-                <Image
-                  position={"absolute"}
-                  top="10%"
-                  width={"25%"}
-                  left="-2%"
-                  src="https://i.ibb.co/xL3pwP6/discounttag.png"
-                />
+                
               </Box>
               <Box backgroundColor={"#FFFFFF"} width="100%" mt={"30px"}>
                 {/* NAME BRAND PRICE START */}
@@ -175,7 +172,7 @@ const ProductDetail = () => {
                       fontWeight={"300"}
                       fontFamily="Rubik, sans-serif"
                     >
-                      {obj.name}
+                      {obj.title}
                     </Text>
                   </Box>
                   <Box
@@ -203,7 +200,7 @@ const ProductDetail = () => {
                       fontWeight={400}
                       color="#80797B"
                     >
-                      MRP: ₹{obj.strikedprice}
+                      MRP: ₹{obj.brand}
                     </Text>
                     <Text
                       mr={4}
@@ -213,7 +210,7 @@ const ProductDetail = () => {
                       fontWeight={600}
                       color="#499B1F"
                     >
-                      (10% OFF)
+                      
                     </Text>
                   </Box>
                   <Box backgroundColor={"#FFFFFF"} margin="5px auto 5px auto">
