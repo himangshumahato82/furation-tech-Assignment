@@ -1,4 +1,4 @@
-# furation-tech-Assignment
+# React-Assignment
 ## Technology Used
 > • React,
 > • React-Context api,
@@ -13,7 +13,7 @@
 > • GitHub
 > • Git
 > • Netlify
-# Deploy link:-https://furation-tech-6e4238.netlify.app
+# Deploy link:-
 # Getting Started with Create React App
 
 This project was  with [Create React App](https://github.com/facebook/create-react-app).
